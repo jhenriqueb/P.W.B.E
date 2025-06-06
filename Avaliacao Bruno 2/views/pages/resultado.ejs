@@ -1,0 +1,18 @@
+<% var css = 'resultado'; %>
+<%- include('../partials/header') %>
+
+<h2><%= pergunta.pergunta %></h2>
+<% [pergunta.alternativa1, pergunta.alternativa2, pergunta.alternativa3].forEach((alt, i) => { 
+  let classe = '';
+  if (i === respostaSelecionada && acertou) classe = 'resposta-certa';
+  else if (i === respostaSelecionada && !acertou) classe = 'resposta-errada';
+  else if (i === pergunta.correta && !acertou) classe = 'resposta-correta';
+%>
+  <div class="resposta <%= classe %>"><%= alt %></div>
+<% }) %>
+
+<h3 class="mt-4"><%= acertou ? \"Você acertou!\" : \"Você errou.\" %></h3>
+<p>Pontuação atual: <%= pontuacao %></p>
+<a href="/jogar" class="btn btn-primary mt-3">Continuar Jogando</a>
+
+<%- include('../partials/footer') %>
