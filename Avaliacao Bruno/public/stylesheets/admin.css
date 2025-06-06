@@ -1,0 +1,11 @@
+.lista-perguntas {
+    list-style: none;
+    padding-left: 0;
+  }
+  .lista-perguntas li {
+    margin-bottom: 10px;
+  }
+  .form-pergunta input {
+    width: 100%;
+  }
+  
