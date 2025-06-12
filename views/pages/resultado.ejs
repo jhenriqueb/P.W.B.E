@@ -1,0 +1,43 @@
+<% var css = 'resultado'; %>
+
+<div class="resultado-page text-center mt-5">
+  <h2 class="mb-4">Resultado</h2>
+  <div class="card mx-auto" style="max-width: 600px;">
+    <div class="card-body">
+      <h3 class="card-title mb-4"><%= pergunta.pergunta %></h3>
+      
+      <div class="mb-4">
+        <% if (acertou) { %>
+          <div class="alert alert-success" role="alert">
+            Parabéns! Você acertou!
+          </div>
+        <% } else { %>
+          <div class="alert alert-danger" role="alert">
+            Ops! Você errou! A resposta correta era: <%= pergunta.correctAnswer %>
+          </div>
+        <% } %>
+      </div>
+
+      <div class="alternativas text-start">
+        <h5>Alternativas:</h5>
+        <ol>
+          <% if (pergunta && pergunta.options) { %>
+            <% pergunta.options.forEach(option => { %>
+              <li class="<%= option === pergunta.correctAnswer ? 'text-success fw-bold' : '' %>">
+                <%= option %>
+                <% if (option === pergunta.correctAnswer) { %>
+                  <span class="badge bg-success ms-2">Correta</span>
+                <% } %>
+              </li>
+            <% }) %>
+          <% } %>
+        </ol>
+      </div>
+
+      <div class="mt-4">
+        <a href="/jogo" class="btn btn-primary btn-lg">Próxima Pergunta</a>
+        <a href="/" class="btn btn-secondary btn-lg ms-2">Voltar ao Início</a>
+      </div>
+    </div>
+  </div>
+</div>
