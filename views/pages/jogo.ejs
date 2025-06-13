@@ -1,0 +1,38 @@
+<div class="jogo-page text-center mt-5">
+  <div class="card mx-auto mb-4" style="max-width: 600px;">
+    <div class="card-body">
+      <h3 class="card-title">Estatísticas</h3>
+      <div class="row text-center">
+        <div class="col">
+          <h5>Total Respondidas</h5>
+          <p class="h3"><%= estatisticas.totalRespondidas %></p>
+        </div>
+        <div class="col">
+          <h5>Acertos</h5>
+          <p class="h3 text-success"><%= estatisticas.acertos %></p>
+        </div>
+        <div class="col">
+          <h5>Erros</h5>
+          <p class="h3 text-danger"><%= estatisticas.erros %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h2 class="mb-4">Pergunta:</h2>
+  <div class="card mx-auto" style="max-width: 600px;">
+    <div class="card-body">
+      <h3 class="card-title mb-4"><%= pergunta.question %></h3>
+      <form action="/verificar" method="POST" class="d-grid gap-3">
+        <input type="hidden" name="perguntaId" value="<%= pergunta.id %>">
+        <% pergunta.options.forEach((option, index) => { %>
+          <div class="form-check text-start">
+            <input class="form-check-input" type="radio" name="resposta" value="<%= option %>" id="alt<%= index + 1 %>" required>
+            <label class="form-check-label" for="alt<%= index + 1 %>"><%= option %></label>
+          </div>
+        <% }) %>
+        <button type="submit" class="btn btn-primary btn-lg mt-4">Responder</button>
+      </form>
+    </div>
+  </div>
+</div>

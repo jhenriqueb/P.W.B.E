@@ -1,0 +1,35 @@
+<div class="home-page text-center mt-5">
+  <h1 class="mb-4">Bem-vindo ao Jogo de Perguntas</h1>
+  
+  <div class="card mx-auto mb-4" style="max-width: 600px;">
+    <div class="card-body">
+      <h3 class="card-title">Estatísticas</h3>
+      <div class="row text-center">
+        <div class="col">
+          <h4>Total Respondidas</h4>
+          <p class="h2"><%= estatisticas.totalRespondidas %></p>
+        </div>
+        <div class="col">
+          <h4>Acertos</h4>
+          <p class="h2 text-success"><%= estatisticas.acertos %></p>
+        </div>
+        <div class="col">
+          <h4>Erros</h4>
+          <p class="h2 text-danger"><%= estatisticas.erros %></p>
+        </div>
+      </div>
+      <% if (estatisticas.totalRespondidas > 0) { %>
+        <div class="mt-3">
+          <form action="/admin/reiniciar" method="POST" class="d-inline">
+            <button type="submit" class="btn btn-warning">Reiniciar Estatísticas</button>
+          </form>
+        </div>
+      <% } %>
+    </div>
+  </div>
+
+  <div class="d-grid gap-3 col-6 mx-auto">
+    <a href="/jogo" class="btn btn-lg btn-success">Jogar</a>
+    <a href="/admin" class="btn btn-lg btn-primary">Administração</a>
+  </div>
+</div>
