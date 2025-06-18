@@ -51,7 +51,7 @@ class Question {
         return true;
     }
 
-    // Classe interna para métodos de banco de dados
+    
     static Database = class {
         static async create(questionData) {
             try {
@@ -137,7 +137,7 @@ class Question {
         }
     }
 
-    // Métodos estáticos para facilitar o acesso aos métodos de banco de dados
+    
     static async create(questionData) {
         return Question.Database.create(questionData);
     }
