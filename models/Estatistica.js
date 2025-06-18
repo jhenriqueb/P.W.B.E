@@ -38,11 +38,11 @@ class Estatistica {
     }
 
     validate() {
-        // Validações adicionais podem ser adicionadas aqui
+        
         return true;
     }
 
-    // Classe interna para métodos de banco de dados
+    
     static Database = class {
         static async findOne() {
             try {
@@ -116,7 +116,6 @@ class Estatistica {
         }
     }
 
-    // Métodos estáticos para facilitar o acesso aos métodos de banco de dados
     static async findOne() {
         return Estatistica.Database.findOne();
     }
