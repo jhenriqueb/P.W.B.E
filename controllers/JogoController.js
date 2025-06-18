@@ -19,7 +19,7 @@ class JogoController {
         try {
             console.log('Iniciando jogo...');
             
-            // Inicializar a sessão se não existir
+            
             if (!req.session.perguntasRespondidas) {
                 req.session.perguntasRespondidas = [];
             }
@@ -56,7 +56,7 @@ class JogoController {
 
     static async verificarResposta(req, res) {
         try {
-            // Inicializar a sessão se não existir
+            
             if (!req.session.perguntasRespondidas) {
                 req.session.perguntasRespondidas = [];
             }
