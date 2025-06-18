@@ -58,22 +58,21 @@ class AdminController {
             const id = parseInt(req.params.id);
             const { pergunta, alternativa1, alternativa2, alternativa3, correta } = req.body;
 
-            // Validar se a pergunta existe
+            
             const perguntaExistente = await Question.findById(id);
             if (!perguntaExistente) {
                 return res.status(404).send('Pergunta não encontrada');
             }
 
-            // Criar array de opções
+            
             const options = [alternativa1, alternativa2, alternativa3];
             const correctAnswer = options[parseInt(correta) - 1];
 
-            // Atualizar a pergunta
-            await Question.update(id, {
+            (id, {
                 question: pergunta,
                 options,
                 correctAnswer,
-                difficulty: perguntaExistente.difficulty // Mantém o mesmo nível de dificuldade
+                difficulty: perguntaExistente.difficulty 
             });
 
             res.redirect('/admin');
