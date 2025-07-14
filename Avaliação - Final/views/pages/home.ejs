@@ -1,0 +1,43 @@
+<div class="home-container">
+    <div class="hero-section">
+        <h1>Bem-vindo ao iMoney</h1>
+        <p>Sua solução completa para todas as suas necessidades financeiras.</p>
+        
+        <% if (usuario) { %>
+            <div class="user-welcome">
+                <h2>Olá, <%= usuario.username %>!</h2>
+                <p>Registre suas operações e acompanhe seus investimentos.</p>
+                <div class="action-buttons">
+                    <a href="/nova_operacao" class="btn-primary">Nova Operação</a>
+                    <a href="/operacoes" class="btn-secondary">Ver Minhas Operações</a>
+                </div>
+            </div>
+        <% } else { %>
+            <div class="guest-welcome">
+                <p>Registre suas operações e acompanhe seus investimentos.</p>
+                <div class="action-buttons">
+                    <a href="/user/login" class="btn-primary">Entrar</a>
+                    <a href="/user/cadastro" class="btn-secondary">Cadastrar</a>
+                </div>
+            </div>
+        <% } %>
+    </div>
+    
+    <div class="features-section">
+        <h2>Funcionalidades</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <h3>📊 Registro de Operações</h3>
+                <p>Registre suas compras e vendas de ativos com facilidade</p>
+            </div>
+            <div class="feature-card">
+                <h3>💰 Cálculo Automático</h3>
+                <p>Cálculo automático de taxas B3 e valores líquidos</p>
+            </div>
+            <div class="feature-card">
+                <h3>📈 Acompanhamento</h3>
+                <p>Acompanhe todo o histórico das suas operações</p>
+            </div>
+        </div>
+    </div>
+</div>

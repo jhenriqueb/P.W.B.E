@@ -1,0 +1,21 @@
+<div class="auth-container">
+    <div class="auth-form">
+        <h2>Login</h2>
+        <form action="/user/login" method="POST">
+            <div class="form-group">
+                <label for="inputUsername">Nome de usuário</label>
+                <input type="text" name="username" id="inputUsername" placeholder="Digite seu nome de usuário" required>
+            </div>
+            <div class="form-group">
+                <label for="inputPassword">Senha</label>
+                <input type="password" name="password" id="inputPassword" placeholder="Digite sua senha" required>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Entrar">
+            </div>
+        </form>
+        <div class="auth-links">
+            <p>Não tem uma conta? <a href="/user/cadastro">Cadastre-se</a></p>
+        </div>
+    </div>
+</div> 

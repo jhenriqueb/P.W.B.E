@@ -1,0 +1,26 @@
+<nav class="navbar">
+    <div class="nav-brand">
+        <h1>iMoney</h1>
+    </div>
+    <ul class="nav-menu">
+        <li><a 
+            <% if (paginaAtiva === 'home') { %> class="active" <% } %> 
+            href="/">Home</a></li>
+        <% if (usuario) { %>
+            <li><a 
+                <% if (paginaAtiva === 'operacao') { %> class="active" <% } %>
+                href="/operacoes">Minhas Operações</a></li>
+            <li><a href="/nova_operacao">Nova Operação</a></li>
+        <% } %>
+        <li><a href="#sobre">Sobre</a></li>
+    </ul>
+    <div class="nav-auth">
+        <% if (usuario) { %>
+            <span class="user-info">Olá, <%= usuario.username %></span>
+            <a href="/user/logout" class="logout-btn">Sair</a>
+        <% } else { %>
+            <a href="/user/login" class="login-btn">Entrar</a>
+            <a href="/user/cadastro" class="register-btn">Cadastrar</a>
+        <% } %>
+    </div>
+</nav>

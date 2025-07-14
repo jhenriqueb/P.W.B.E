@@ -1,0 +1,61 @@
+<div class="operations-container">
+    <div class="page-header">
+        <h2>Minhas Operações</h2>
+        <p>Acompanhe todas as suas operações de compra e venda</p>
+    </div>
+    
+    <% if (operations && operations.length > 0) { %>
+        <table>
+            <thead>
+                <th>Data</th>
+                <th>Código do ativo</th>
+                <th>Tipo de operação</th>
+                <th>Quantidade</th>
+                <th>Preço unitário</th>
+                <th>Valor Bruto</th>
+                <th>Taxas B3</th>
+                <th>Valor líquido</th>
+            </thead>
+            <tbody>
+                <% for (let i = 0; i < operations.length; i++) { %>
+                    <% operacao = operations[i] %>
+                    <tr>
+                        <td>
+                            <%= new Date(operacao.data).toLocaleDateString('pt-BR') %>
+                        </td>
+                        <td>
+                            <%= operacao.ativo %>
+                        </td>
+                        <td>
+                            <span class="<%= operacao.tipoDeOperacao === 'compra' ? 'compra' : 'venda' %>">
+                                <%= operacao.tipoDeOperacao.toUpperCase() %>
+                            </span>
+                        </td>
+                        <td>
+                            <%= operacao.quantidade %>
+                        </td>
+                        <td>
+                            R$ <%= operacao.preco.toFixed(2) %>
+                        </td>
+                        <td>
+                            R$ <%= operacao.valorBruto.toFixed(2) %>
+                        </td>
+                        <td>
+                            R$ <%= operacao.taxaB3.toFixed(2) %>
+                        </td>
+                        <td>
+                            R$ <%= operacao.valorLiquido.toFixed(2) %>
+                        </td>
+                    </tr>
+                <% } %>
+            </tbody>
+        </table>
+    <% } else { %>
+        <div class="no-operations">
+            <p>Você ainda não possui operações registradas.</p>
+        </div>
+    <% } %>
+    <div class="container-botoes">
+        <a class="botao-link" href="/nova_operacao">Cadastrar nova operação</a>
+    </div>
+</div> 
